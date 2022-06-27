@@ -1,13 +1,6 @@
 (ns Doc.seed
   (:require
-   [clojure.core.async
-    :refer [chan put! take! close! offer! to-chan! timeout thread
-            sliding-buffer dropping-buffer
-            go >! <! alt! alts! do-alts
-            mult tap untap pub sub unsub mix unmix admix
-            pipe pipeline pipeline-async]]
-   [clojure.java.io]
+   [clojure.core.async :as a :refer [<! >! <!! >!! chan put! take! go alt! alts! do-alts close! timeout pipe mult tap untap
+                                     pub sub unsub mix admix unmix dropping-buffer sliding-buffer pipeline pipeline-async to-chan! thread]]
    [clojure.string]
-   [clojure.repl]))
-
-(do (set! *warn-on-reflection* true) (set! *unchecked-math* true))
+   [clojure.java.io :as io]))
