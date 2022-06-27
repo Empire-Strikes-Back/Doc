@@ -1,1 +1,1 @@
-why are things so heavy in the future?
+i was standing on the toilet hanging a clock, slipped, hit my head and had a revelation: like Jesus, i can walk on water and don't need to hit my head! and good news (not Dacia Sandero) - i invented computer games, esports and streaming dish "Back in Time": dates - question challenge game, pekans - tiles-and-pathfinding strategy game, kiwis - chart and visualize data, salt - grid game, red cabbage - discover similar computer games, millet - table-search datasets, mung - video recording and live streaming - 1.21 gigawatts!
