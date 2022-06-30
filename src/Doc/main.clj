@@ -109,40 +109,33 @@
   nil)
 
 (defn settings-process
-  [{:keys [^JFrame root-jframe
-           ^JFrame jframe
+  [{:keys [^JPanel jpanel-tab
            ops|
            settingsA]
     :or {}
     :as opts}]
-  (let [root-panel (JPanel.)
-        jscroll-pane (JScrollPane.)
+  (let [jscroll-pane (JScrollPane.)
+        jcheckbox-apricotseed (JCheckBox.)]
 
-        jcheckbox-editor (JCheckBox.)]
+    #_(doto jscroll-pane
+        (.setViewportView jpanel-tab)
+        (.setHorizontalScrollBarPolicy ScrollPaneConstants/HORIZONTAL_SCROLLBAR_NEVER))
 
-    (doto jscroll-pane
-      (.setViewportView root-panel)
-      (.setHorizontalScrollBarPolicy ScrollPaneConstants/HORIZONTAL_SCROLLBAR_NEVER))
-
-    (doto jframe
-      (.add root-panel))
-
-    (doto root-panel
+    (doto jpanel-tab
       (.setLayout (MigLayout. "insets 10"))
-      (.add (JLabel. ":editor?") "cell 0 0")
-      (.add jcheckbox-editor "cell 0 0"))
+      (.add (JLabel. ":apricotseed?") "cell 0 0")
+      (.add jcheckbox-apricotseed "cell 0 0")
+      (.add (JLabel. ":ipfs-http-api") "cell 0 1")
+      (.add (JTextField. "http://127.0.0.1:5001") "cell 1 1"))
 
-    (.setPreferredSize jframe (Dimension. (* 0.8 (.getWidth root-jframe))
-                                          (* 0.8 (.getHeight root-jframe))))
-
-    (.addActionListener jcheckbox-editor
+    (.addActionListener jcheckbox-apricotseed
                         (reify ActionListener
                           (actionPerformed [_ event]
                             (SwingUtilities/invokeLater
                              (reify Runnable
                                (run [_]
-                                 (put! ops| {:op :settings-value
-                                             :editor? (.isSelected jcheckbox-editor)})))))))
+                                 #_(put! ops| {:op :settings-value
+                                               :_ (.isSelected jcheckbox-apricotseed)})))))))
 
     (remove-watch settingsA :settings-process)
     (add-watch settingsA :settings-process
@@ -150,13 +143,7 @@
                  (SwingUtilities/invokeLater
                   (reify Runnable
                     (run [_]
-                      (.setSelected jcheckbox-editor (:editor? new-state)))))))
-
-    (doto jframe
-      (.setDefaultCloseOperation WindowConstants/DISPOSE_ON_CLOSE #_WindowConstants/EXIT_ON_CLOSE)
-      (.pack)
-      (.setLocationRelativeTo root-jframe)
-      (.setVisible true)))
+                      (.setSelected jcheckbox-apricotseed (:apricotseed? new-state))))))))
   nil)
 
 (defn -main
@@ -222,7 +209,11 @@
           (.setSelectedComponent jpanel-oats))
 
         (Doc.oats/process {:jpanel-tab jpanel-oats
-                              :db-data-dirpath db-data-dirpath})
+                           :db-data-dirpath db-data-dirpath})
+
+        (settings-process {:jpanel-tab jpanel-B12
+                           :ops| ops|
+                           :settingsA settingsA})
 
         (.add jroot-panel jtabbed-pane))
 
