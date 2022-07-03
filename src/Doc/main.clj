@@ -18,7 +18,7 @@
    [Doc.kiwis]
    [Doc.B12]
    [Doc.salt]
-   [Doc.bread]
+   [Doc.oats]
    [Doc.dates])
   (:import
    (javax.swing JFrame WindowConstants JPanel JScrollPane JTextArea BoxLayout JEditorPane ScrollPaneConstants SwingUtilities JDialog)
@@ -68,7 +68,7 @@
    '[Doc.kiwis]
    '[Doc.B12]
    '[Doc.salt]
-   '[Doc.bread]
+   '[Doc.oats]
    '[Doc.dates]
    '[Doc.main]
    :reload))
@@ -194,7 +194,7 @@
             jpanel-kiwis (JPanel.)
             jpanel-B12 (JPanel.)
             jpanel-salt (JPanel.)
-            jpanel-bread (JPanel.)
+            jpanel-oats (JPanel.)
             jpanel-dates (JPanel.)]
 
         (doto jtabbed-pane
@@ -202,11 +202,11 @@
           (.addTab "kiwis" jpanel-kiwis)
           (.addTab "B12" jpanel-B12)
           (.addTab "salt" jpanel-salt)
-          (.addTab "bread" jpanel-bread)
+          (.addTab "oats" jpanel-oats)
           (.addTab "dates" jpanel-dates)
-          (.setSelectedComponent jpanel-bread))
+          (.setSelectedComponent jpanel-oats))
 
-        (Doc.bread/process {:jpanel-tab jpanel-bread
+        (Doc.oats/process {:jpanel-tab jpanel-oats
                            :db-data-dirpath db-data-dirpath})
 
         (settings-process {:jpanel-tab jpanel-B12
