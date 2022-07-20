@@ -15,7 +15,6 @@
    [datahike.api]
    [taoensso.timbre]
 
-   [Doc.water]
    [Doc.kiwis]
    [Doc.B12]
    [Doc.salt]
@@ -66,7 +65,6 @@
 (defn reload
   []
   (require
-   '[Doc.water]
    '[Doc.kiwis]
    '[Doc.B12]
    '[Doc.salt]
