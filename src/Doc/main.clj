@@ -19,7 +19,7 @@
    [Doc.B12]
    [Doc.salt]
    [Doc.bread]
-   [Doc.raisins])
+   [Doc.wine])
   (:import
    (javax.swing JFrame WindowConstants JPanel JScrollPane JTextArea BoxLayout JEditorPane ScrollPaneConstants SwingUtilities JDialog)
    (javax.swing JMenu JMenuItem JMenuBar KeyStroke JOptionPane JToolBar JButton JToggleButton JSplitPane JLabel JTextPane JTextField JTable JTabbedPane)
@@ -69,7 +69,7 @@
    '[Doc.B12]
    '[Doc.salt]
    '[Doc.bread]
-   '[Doc.raisins]
+   '[Doc.wine]
    '[Doc.main]
    :reload))
 
@@ -195,7 +195,7 @@
             jpanel-B12 (JPanel.)
             jpanel-salt (JPanel.)
             jpanel-bread (JPanel.)
-            jpanel-raisins (JPanel.)]
+            jpanel-wine (JPanel.)]
 
         (doto jtabbed-pane
           (.setTabLayoutPolicy JTabbedPane/SCROLL_TAB_LAYOUT)
@@ -203,7 +203,7 @@
           (.addTab "B12" jpanel-B12)
           (.addTab "salt" jpanel-salt)
           (.addTab "bread" jpanel-bread)
-          (.addTab "raisins" jpanel-raisins)
+          (.addTab "wine" jpanel-wine)
           (.setSelectedComponent jpanel-bread))
 
         (Doc.bread/process {:jpanel-tab jpanel-bread
